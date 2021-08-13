@@ -30,7 +30,7 @@
           <span class="checkmark"></span>
         </label>
         <span class="todo-text">{{todo.text}}</span>
-        <a class="todo-delete"></a>
+        <a @click="deleteTodo(todo.id)" class="todo-delete"></a>
       </li>
     </ul>
   </div>
