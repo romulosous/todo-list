@@ -68,6 +68,10 @@ const apiTodos = new Todos()
 const app = createApp({
   data () {
     return {
+      todo: {
+        text: '',
+        done: false
+      },
       todos: []
     }
   },
@@ -77,6 +81,13 @@ const app = createApp({
   methods: {
     async fetchTodos () {
       this.todos = await apiTodos.index()
+    },
+    async createTodo () {
+      const data = await apiTodos.create(this.todo)
+      this.todos.push(data)
+
+      this.todo.text = ''
+      this.todo.done = false
     }
   }
 })

@@ -9,12 +9,12 @@
 
 <body>
   <div id="app">
-    <form>
-      <input type="text" placeholder="Todo" />
+    <form @submit.prevent="createTodo">
+      <input type="text" placeholder="Todo" v-model="todo.text" />
 
       <label class="checkbox-input">
-        Não concluída
-        <input type="checkbox" checked="true" />
+        {{ todo.done ? 'Concluída' : 'Não concluida'}}
+        <input type="checkbox" v-model="todo.done" :checked="todo.done" />
         <span class="checkmark"></span>
       </label>
 
