@@ -25,7 +25,7 @@
       <span class="todos-title">Todos</span>
 
       <li :class="['todo', {'done': todo.done}]" v-for="todo in todos" :key="todo.id">
-        <label class="checkbox-input">
+        <label class="checkbox-input" @click="toggleTodoStatus(todo)">
           <input type="checkbox" :checked="todo.done" />
           <span class="checkmark"></span>
         </label>
